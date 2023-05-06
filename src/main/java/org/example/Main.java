@@ -1,23 +1,17 @@
 package org.example;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
-        Scanner scanner = new Scanner(System.in);
-
-        try{
-            int a=10;
-            int b= Integer.parseInt(scanner.nextLine());
-            System.out.println("División: "+ (a/b));
-        }catch (ArithmeticException e){
-            System.out.println("No se puede dividir entre 0");
-        }catch (NumberFormatException nfe){
-            System.out.println("No capturaste bien el dato");
-        }finally {
-            System.out.println("siempre se ejecuta...");
+        LeerArchivo lectura= new LeerArchivo();
+        try {
+            lectura.metodoUno("datos.txt");
+        }catch (IOException e){
+            e.printStackTrace();
         }
-        System.out.println("Fin del programa");
+
     }
 }
